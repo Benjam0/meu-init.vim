@@ -31,6 +31,8 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
+nnoremap <silent> <esc> :noh<cr><esc>
+
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c" },
