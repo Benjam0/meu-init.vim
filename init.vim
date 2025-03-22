@@ -1,5 +1,4 @@
 call plug#begin()
-" List your plugins here
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'sainnhe/everforest'
@@ -17,6 +16,20 @@ endif
 let g:everforest_background = 'hard'
 
 colorscheme everforest
+
+set tabstop=4
+set shiftwidth=4 smarttab
+set softtabstop=4 
+set expandtab 
+
+set clipboard+=unnamedplus
+
+set number
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
 
 lua << EOF
 require'nvim-treesitter.configs'.setup {
