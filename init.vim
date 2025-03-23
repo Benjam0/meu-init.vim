@@ -31,6 +31,16 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
+let mapleader=","
+set timeoutlen=2000
+let g:netrw_preview = 1
+nnoremap <silent> <leader>e :Ex
+nnoremap <silent> <leader>t :Tex
+nnoremap <silent> <leader>v :Vex
+nnoremap <silent> <leader>h :Hex
+nnoremap <silent> <leader>l :Lex
+nnoremap <silent> <leader>s :Sex
+
 nnoremap <silent> <esc> :noh<cr><esc>
 
 lua << EOF
