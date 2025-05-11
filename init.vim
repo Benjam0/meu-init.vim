@@ -14,6 +14,7 @@ if has('termguicolors')
 endif
 
 let g:everforest_background = 'hard'
+let g:everforest_transparent_background = '2'
 
 colorscheme everforest
 
@@ -31,7 +32,7 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
-let mapleader=","
+let mapleader = ","
 set timeoutlen=2000
 let g:netrw_preview = 1
 nnoremap <silent> <leader>e :Ex
@@ -44,6 +45,10 @@ nnoremap <silent> <leader>s :Sex
 nnoremap <silent> <esc> :noh<cr><esc>
 
 lua << EOF
+vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#6F8E4F', bold = false })
+vim.api.nvim_set_hl(0, 'LineNr', { fg = '#88A35E', bold = false })
+vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#6F8E4F', bold = false })
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c" },
   highlight = { enable = true },
